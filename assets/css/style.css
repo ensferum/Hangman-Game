@@ -1,0 +1,16 @@
+
+
+.jumbotron {
+    background:url('http://geodavephotography.com/images/shark-wallpaper/36608428-shark-wallpaper.jpg') no-repeat center center;
+   /* opacity: .75;*/
+}
+
+.jumbotron .h1, .jumbotron h1 {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
+
+.jumbotron p {
+	color:white;
+}
