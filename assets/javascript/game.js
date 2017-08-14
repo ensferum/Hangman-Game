@@ -20,7 +20,7 @@ var lettersUsed = document.getElementById("lettersUsed");
 var beginGame = 0;
 
 //Shows the number of wins
-wins.innerHTML = "You have won" + beginGame + "times";
+wins.innerHTML = "You have won " + beginGame + " times";
 
 //Sets array for the game
 var gameBoard = [""];
@@ -30,7 +30,7 @@ var guessedLetters = [];
 
 for (var i = 0; i < wordBank.length; i++) {
 
-    lettersUsed.push(false);
+    wasWordUsed.push(false);
 }
 
 randomAnswer();
@@ -57,20 +57,20 @@ function randomAnswer() {
     currentWord.innerHTML = "<p>" + board + "<p>";
 }
 
-setAnswer();
-letter.innerHTML = "";
+randomAnswer();
+lettersUsed.innerHTML = "";
 
 //Setting the user key input action
 
 document.onkeyup = function(event) {
 
     var isCorrectInput = false;
-    var userGuess = even.key;
+    var userGuess = event.key;
     var isFoundInWord = false;
     var doesWin = true;
     var board = "";
     var lettersDisplayed = "";
-    if (userGuess.charCodeAt(0)<==65&&userGuess.charCodeAt(0)>==90) {
+    if (userGuess.charCodeAt(0) <= 122 && userGuess.charCodeAt(0) >= 97) {
 
         isCorrectInput = false;
     }
@@ -88,17 +88,15 @@ document.onkeyup = function(event) {
 
     }
 
-}
 
-guessedLetters.push(userGuess);
-guessedLetters.sort();
 
-if (isFoundInWord) {
-    {
+    guessedLetters.push(userGuess);
+    guessedLetters.sort();
+
+    if (isFoundInWord) {
         for (var i = 0; i < board.length; i++) {
-            board = board + gameBoard[i] + "";
+            board = board + gameBoard[i] + " ";
             if (gameBoard[i] === "-" && doesWin) {
-
                 doesWin = false;
             }
         }
@@ -106,9 +104,9 @@ if (isFoundInWord) {
         currentWord.innerHTML = "<p>" + board + "<p>";
 
     } else {
-
         doesWin = false;
     }
+
 
     for (var i = 0; i < guessedLetters.length; i++) {
         lettersDisplayed = lettersDisplayed + guessedLetters[i] + " ";
@@ -119,4 +117,5 @@ if (isFoundInWord) {
     if (doesWin) {
         reset(true);
     }
+
 }
