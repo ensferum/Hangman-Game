@@ -1,16 +1,39 @@
-
-
-.jumbotron {
-    background:url('http://geodavephotography.com/images/shark-wallpaper/36608428-shark-wallpaper.jpg') no-repeat center center;
-   /* opacity: .75;*/
+body {
+    background-image: url('http://geodavephotography.com/images/shark-wallpaper/36608428-shark-wallpaper.jpg');
+    background-color: #000;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-.jumbotron .h1, .jumbotron h1 {
+
+.jumbotron{
+    color: black;
+}
+
+}
+
+h1 {
     color: red;
     text-align: center;
     font-weight: bold;
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-size: 1000%;
+    /*line-height: 500%;*/
 }
 
-.jumbotron p {
-	color:white;
+.container,
+p .display-3 {
+    color: white;
+    font-family: 'Sarpanch', sans-serif;
+}
+.btn {
+
+    margin-left: 46%;
+}
+
+h2 {
+
+    color: white;
+    font-family: 'Sarpanch', sans-serif;
 }

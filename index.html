@@ -5,20 +5,37 @@
     <title>Hangman Game</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">      
+    <link href="https://fonts.googleapis.com/css?family=Sarpanch:500|Sedgwick+Ave+Display" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="assets/javascript/game.js"></script>
 </head>
 
 <body>
-    <div class="jumbotron">
-        <h1 class="display-3">Hangman</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <div class="container">
+        <h1 class="display-3">Shark Hangman</h1>
+        <p class="lead">Test your knowledge about shark names!</p>
         <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Restart</a>
-        </p>
-    </div>
+        <p></p>
+        <br>
+        <div class="row">
+            <div class="col-lg-3">
+            </div>
+            <div class="jumbotron col-lg-6">
+                <p>Solve the puzzle to gain points. Press any key to begin.</p>
+                <br>
+                <div id="wins"></div>
+                <p>Current Word:</p>
+                <div id="currentWord"></div>
+                <div id="lives"></div>
+                <p>Letters Used:</p>
+                <div id="lettersUsed"></div>
+                <div class="col-lg-3">
+                </div>
+            </div>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#" role="button">Restart</a>
+            </p>
+        </div>
 </body>
 
 </html>
