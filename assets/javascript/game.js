@@ -34,7 +34,7 @@ for (var i = 0; i < wordBank.length; i++) {
 }
 
 randomAnswer();
-
+    
 
 
 function randomAnswer() {
@@ -73,7 +73,7 @@ document.onkeyup = function(event)
     var lettersDisplayed = "";
     if (userGuess.charCodeAt(0) <= 122 && userGuess.charCodeAt(0) >= 97) {
 
-        isCorrectInput = false;
+        isCorrectInput = true;
     }
 
     if (!isCorrectInput) {
@@ -119,4 +119,7 @@ document.onkeyup = function(event)
         reset(true);
     }
 
+    
+
 }
+
