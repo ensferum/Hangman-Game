@@ -62,7 +62,8 @@ lettersUsed.innerHTML = "";
 
 //Setting the user key input action
 
-document.onkeyup = function(event) {
+document.onkeyup = function(event) 
+{
 
     var isCorrectInput = false;
     var userGuess = event.key;
