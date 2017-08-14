@@ -119,7 +119,12 @@ document.onkeyup = function(event)
         reset(true);
     }
 
-    
+//     var resetButton = document.getElementbyId('resetButton');
+//     resetButton.onclick= reloadPage;
+
+// function reloadPage(){
+//    window.location.reload();
+// }
 
 }
 
