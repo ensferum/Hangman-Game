@@ -38,24 +38,85 @@ randomAnswer();
 
 
 function randomAnswer() {
-    var board= "";
+    var board = "";
     var random = 0;
     var tempTrue = true;
 
-    while(wasWordUsed[random]||tempTrue) {
-    
+    while (wasWordUsed[random] || tempTrue) {
+
         // random=
         answer = wordBank[random];
-        tempTrue= false;
+        tempTrue = false;
     }
 
-    for (var i = 0; i <answer.length; i ++) {
-        gameBoard[i]= "-";
-        board = board + gameBoard[i]+ " ";
+    for (var i = 0; i < answer.length; i++) {
+        gameBoard[i] = "-";
+        board = board + gameBoard[i] + " ";
     }
 
     currentWord.innerHTML = "<p>" + board + "<p>";
 }
 
 setAnswer();
-letter.innerHTML= "";
+letter.innerHTML = "";
+
+//Setting the user key input action
+
+document.onkeyup = function(event) {
+
+    var isCorrectInput = false;
+    var userGuess = even.key;
+    var isFoundInWord = false;
+    var doesWin = true;
+    var board = "";
+    var lettersDisplayed = "";
+    if (userGuess.charCodeAt(0)<==65&&userGuess.charCodeAt(0)>==90) {
+
+        isCorrectInput = false;
+    }
+
+    if (!isCorrectInput) {
+        return;
+    }
+
+    for (var i = 0; i < answer.length; i++) {
+
+        if (answer.charAt(i) === userGuess) {
+            isFoundInWord = true;
+            board[i] = userGuess;
+        }
+
+    }
+
+}
+
+guessedLetters.push(userGuess);
+guessedLetters.sort();
+
+if (isFoundInWord) {
+    {
+        for (var i = 0; i < board.length; i++) {
+            board = board + gameBoard[i] + "";
+            if (gameBoard[i] === "-" && doesWin) {
+
+                doesWin = false;
+            }
+        }
+
+        currentWord.innerHTML = "<p>" + board + "<p>";
+
+    } else {
+
+        doesWin = false;
+    }
+
+    for (var i = 0; i < guessedLetters.length; i++) {
+        lettersDisplayed = lettersDisplayed + guessedLetters[i] + " ";
+    }
+
+    lettersUsed.innerHTML = "<p>" + lettersDisplayed + "<p>";
+
+    if (doesWin) {
+        reset(true);
+    }
+}
