@@ -1,8 +1,12 @@
 // Creating shark word bank
 var wordBank = ["megaladon", "bull", "thresher", "blue", "tiger", "mako"];
 
+var selectedWord = "";
+
 //Sets an array for if a word was used
 var wasWordUsed = [];
+
+var lettersinWord = [];
 
 //Documents the number of wins
 var wins = document.getElementById("wins");
@@ -32,8 +36,6 @@ var gameBoard = [""];
 //Stores the letters that have been guessed
 var guessedLetters = [];
 
-//Randomize which word is chosen from the wordBank
-var rand = wordBank[Math.floor(Math.random() * wordBank.length)];
 
 for (var i = 0; i < wordBank.length; i++) {
 
@@ -43,7 +45,8 @@ for (var i = 0; i < wordBank.length; i++) {
 randomAnswer();
     
 
-
+//Randomize which word is chosen from the wordBank
+// 
 function randomAnswer() {
     var board = " ";
     var random = 0;
@@ -52,8 +55,9 @@ function randomAnswer() {
     while (wasWordUsed[random] || tempTrue) {
 
         // random=
-        answer = wordBank[random];
+        answer = wordBank[Math.floor(Math.random() * wordBank.length)];
         tempTrue = false;
+        numBlanks = lettersinWord.length;
     }
 
     for (var i = 0; i < answer.length; i++) {
@@ -104,7 +108,7 @@ document.onkeyup = function(event)
     if (isFoundInWord) {
         for (var i = 0; i < gameBoard.length; i++) {
             board = board + gameBoard[i] + " ";
-            if (gameBoard[i] === "-" && doesWin) {
+            if (gameBoard[i] === "" && doesWin) {
                 doesWin = false;
             }
         }
@@ -128,12 +132,6 @@ document.onkeyup = function(event)
         reset(true);
     }
 
-//     var resetButton = document.getElementbyId('resetButton');
-//     resetButton.onclick= reloadPage;
-
-// function reloadPage(){
-//    window.location.reload();
-// }
 
 }
 
