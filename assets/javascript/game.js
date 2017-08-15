@@ -9,6 +9,7 @@ var wins = document.getElementById("wins");
 
 //Documents lives left
 var lives = document.getElementById("lives");
+var lives = 10;
 
 //Shows the current word
 var currentWord = document.getElementById("currentWord");
@@ -22,11 +23,17 @@ var beginGame = 0;
 //Shows the number of wins
 wins.innerHTML = "You have won " + beginGame + " times";
 
+lives.innerHTML ="You have" + lives + "left";
+
+
 //Sets array for the game
 var gameBoard = [""];
 
 //Stores the letters that have been guessed
 var guessedLetters = [];
+
+//Randomize which word is chosen from the wordBank
+var rand = wordBank[Math.floor(Math.random() * wordBank.length)];
 
 for (var i = 0; i < wordBank.length; i++) {
 
@@ -38,7 +45,7 @@ randomAnswer();
 
 
 function randomAnswer() {
-    var board = "";
+    var board = " ";
     var random = 0;
     var tempTrue = true;
 
@@ -84,23 +91,25 @@ document.onkeyup = function(event)
 
         if (answer.charAt(i) === userGuess) {
             isFoundInWord = true;
-            board[i] = userGuess;
+            gameBoard[i] = userGuess;
         }
 
     }
 
-
+    console.log(isFoundInWord);
 
     guessedLetters.push(userGuess);
     guessedLetters.sort();
 
     if (isFoundInWord) {
-        for (var i = 0; i < board.length; i++) {
+        for (var i = 0; i < gameBoard.length; i++) {
             board = board + gameBoard[i] + " ";
             if (gameBoard[i] === "-" && doesWin) {
                 doesWin = false;
             }
         }
+
+        console.log(board);
 
         currentWord.innerHTML = "<p>" + board + "<p>";
 
